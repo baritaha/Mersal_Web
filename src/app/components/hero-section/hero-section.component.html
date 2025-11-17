@@ -1,0 +1,50 @@
+<section class="hero" id="home">
+  <div class="hero-background">
+    <!-- Video Background -->
+    <video autoplay muted loop playsinline class="video-bg">
+      <source src="/assets/videos/software3.mp4" type="video/mp4">
+      <!-- Fallback for browsers that don't support video -->
+      <div class="gradient-fallback"></div>
+    </video>
+    <div class="video-overlay"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1 class="hero-title">Mersal Trading Company</h1>
+      <p class="hero-subtitle">
+        A leading Jordanian company providing integrated digital solutions including
+        electronic payments, vocational training, digital employment, and software services.
+      </p>
+      <a (click)="scrollToSection('platforms')" class="hero-button">
+        Explore Our Platforms
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="hero-visual">
+      <div class="platform-cards">
+        <div class="platform-card" (click)="scrollToSection('directhub')">
+          <i class="fas fa-graduation-cap"></i>
+          <span>DirectHub</span>
+          <p>Training & Employment</p>
+        </div>
+        <div class="platform-card" (click)="scrollToSection('direct')">
+          <i class="fas fa-wallet"></i>
+          <span>Direct Fawry</span>
+          <p>Electronic Payments</p>
+        </div>
+        <div class="platform-card" (click)="scrollToSection('software')">
+          <i class="fas fa-code"></i>
+          <span>Software Services</span>
+          <p>Custom Solutions</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator" (click)="scrollToSection('about')">
+    <div class="scroll-line"></div>
+    <span>Discover More</span>
+  </div>
+</section>

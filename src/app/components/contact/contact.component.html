@@ -1,0 +1,133 @@
+<!-- contact.component.html -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Contact Us</h2>
+      <p class="section-subtitle">Get in touch with Mersal Trading Company for your digital transformation needs</p>
+    </div>
+
+    <div class="contact-content">
+      <!-- Contact Information -->
+      <div class="contact-info">
+        <h3>Get In Touch</h3>
+        <p>Ready to transform your business with our digital solutions? Contact us today!</p>
+
+        <div class="contact-details">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div class="contact-text">
+              <h4>Email</h4>
+              <span [innerHTML]="contactInfo.email"></span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <div class="contact-text">
+              <h4>Phone</h4>
+              <span *ngFor="let phone of contactInfo.phones">{{ phone }}<br></span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="contact-text">
+              <h4>Address</h4>
+              <span>{{ contactInfo.address }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="business-hours">
+          <h4>Business Hours</h4>
+          <p>Sunday - Thursday: 9:00 AM - 6:00 PM</p>
+          <p>Friday - Saturday: Closed</p>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-container">
+        <h3>Send us a Message</h3>
+        <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" class="contact-form">
+          <div class="form-group">
+            <label for="name">Full Name </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              [(ngModel)]="formData.name"
+              required
+              placeholder="Your full name">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                [(ngModel)]="formData.email"
+                required
+                placeholder="your.email@example.com">
+            </div>
+
+            <div class="form-group">
+              <label for="company">Company</label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                [(ngModel)]="formData.company"
+                placeholder="Your company name">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                [(ngModel)]="formData.phone"
+                placeholder="Your phone number">
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject </label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                [(ngModel)]="formData.subject"
+                required
+                placeholder="Message subject">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message </label>
+            <textarea
+              id="message"
+              name="message"
+              [(ngModel)]="formData.message"
+              required
+              rows="5"
+              placeholder="Tell us about your project or inquiry..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn" [disabled]="!contactForm.form.valid">
+            Send Message
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <div class="scroll-to-top" [class.show]="showScrollArrow" (click)="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+</section>

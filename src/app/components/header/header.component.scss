@@ -1,0 +1,222 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(75, 0, 196, 0.1);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  min-height: 80px; /* Fixed minimum height */
+  box-sizing: border-box;
+
+  &.scrolled {
+    background: rgba(75, 0, 196, 0.95);
+    box-shadow: 0 8px 32px rgba(75, 0, 196, 0.2);
+    padding: 0.5rem 2rem; /* Reduced padding when scrolled */
+    border-bottom: 1px solid rgba(219, 0, 255, 0.3);
+    min-height: 60px; /* Smaller minimum height when scrolled */
+
+    .nav-link {
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+      &:hover {
+        color: #db00ff;
+        text-shadow: 0 0 20px rgba(219, 0, 255, 0.8);
+      }
+    }
+
+    .cta-button a {
+      background: linear-gradient(135deg, #4b00c4, #db00ff);
+      color: #ffffff;
+      border: 1px solid rgba(219, 0, 255, 0.5);
+
+      &:hover {
+        background: linear-gradient(135deg, #db00ff, #4b00c4);
+      }
+    }
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+position: relative;
+left: 50px;
+
+    img {
+max-height: 130px;
+      object-fit: contain; /* Maintain aspect ratio */
+      position: absolute;
+      transition: all 0.3s ease;
+    }
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+
+    .nav-link {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 0.5rem 0;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      white-space: nowrap;
+
+      &:hover {
+        color: #db00ff;
+        text-shadow: 0 0 20px rgba(219, 0, 255, 0.8);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 3px;
+        bottom: 0;
+        left: 50%;
+        background: linear-gradient(90deg, #4b00c4, #db00ff);
+        border-radius: 2px;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform: translateX(-50%);
+      }
+
+      &:hover::after {
+        width: 100%;
+        box-shadow: 0 0 20px rgba(219, 0, 255, 0.6);
+      }
+    }
+  }
+
+  .cta-button {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0; /* Prevent button from shrinking */
+
+    a {
+      background: linear-gradient(135deg, rgba(75, 0, 196, 0.4), rgba(219, 0, 255, 0.4));
+      color: #ffffff;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border: 2px solid rgba(219, 0, 255, 0.3);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.6s ease;
+      }
+
+      &:hover {
+        background: linear-gradient(135deg, #4b00c4, #db00ff);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(75, 0, 196, 0.5);
+
+        &::before {
+          left: 100%;
+        }
+      }
+    }
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    padding: 0.8rem 1rem;
+    min-height: 70px;
+    flex-wrap: wrap;
+
+    &.scrolled {
+      padding: 0.5rem 1rem;
+      min-height: 50px;
+    }
+
+
+
+    .nav-menu {
+      order: 3;
+      width: 100%;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .cta-button {
+      order: 2;
+
+      a {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0.5rem;
+    min-height: 60px;
+
+    &.scrolled {
+      padding: 0.5rem;
+      min-height: 50px;
+    }
+
+
+    .nav-menu {
+      gap: 1rem;
+
+      .nav-link {
+        font-size: 0.9rem;
+      }
+    }
+
+    .cta-button a {
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+    }
+  }
+}
+/*
+.x{
+  //eco-conscious Green Palette
+  color:#F5F5DC;//base :soft beige
+  color: #228B22;//accent :forest green
+  color:#A4DE02;//highlight :lime green
+  //font Open Sans
+//Luxury Metallic & Neutrals
+  color:#333333;//base :Charcoal gray
+  color:#FFD700;//accent :Gold
+  color:#FFFFF0;//secondary Ivory
+//vibrant Dopamine Bright Colors
+  color:#FFFFFF;//base :white
+  color:#007BFF;//accent :Electric blue
+  color:#FF6F61;//highlight :Coral
+
+}**/

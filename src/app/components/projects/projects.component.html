@@ -1,0 +1,78 @@
+<section class="projects" id="projects">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Previous Projects</h2>
+      <p class="section-subtitle">Successfully delivered solutions that drive business growth</p>
+    </div>
+
+    <div class="projects-grid">
+      <div *ngFor="let project of projects; let i = index" class="project-card" [class.expanded]="project.isExpanded">
+        <div class="project-header" (click)="toggleProject(i)">
+          <div class="header-content">
+            <h3 class="project-title">{{ project.title }}</h3>
+            <div class="project-technologies">
+              <span *ngFor="let tech of project.technologies" class="tech-tag">
+                {{ tech }}
+              </span>
+            </div>
+          </div>
+          <div class="collapse-icon">
+            <i class="fas" [class.fa-chevron-down]="!project.isExpanded" [class.fa-chevron-up]="project.isExpanded"></i>
+          </div>
+        </div>
+
+        <div class="project-body" *ngIf="project.isExpanded">
+          <p class="project-description">{{ project.description }}</p>
+
+          <div class="project-details">
+            <div class="detail-item">
+              <strong>Client:</strong>
+              <span>{{ project.client }}</span>
+            </div>
+            <div class="detail-item">
+              <strong>Outcome:</strong>
+              <span>{{ project.outcome }}</span>
+            </div>
+            <div *ngIf="project.reference" class="detail-item">
+              <strong>Reference:</strong>
+              <span>{{ project.reference }}</span>
+            </div>
+          </div>
+
+          <div class="project-features">
+            <h4>Key Features</h4>
+            <ul>
+              <li *ngIf="project.title.includes('OrbitHR')">
+                Automated job posting, CV collection, and candidate communication
+              </li>
+              <li *ngIf="project.title.includes('OrbitHR')">
+                Centralized candidate data organization for easy access and tracking
+              </li>
+              <li *ngIf="project.title.includes('OrbitHR')">
+                Improved hiring efficiency by quickly filtering unqualified candidates
+              </li>
+              <li *ngIf="project.title.includes('CRM')">
+                Customer data management and organization
+              </li>
+              <li *ngIf="project.title.includes('CRM')">
+                Interaction tracking across multiple channels
+              </li>
+              <li *ngIf="project.title.includes('CRM')">
+                Actionable insights based on customer behavior
+              </li>
+              <li *ngIf="project.title.includes('LMS')">
+                Course creation and management
+              </li>
+              <li *ngIf="project.title.includes('LMS')">
+                Online learning and interaction support
+              </li>
+              <li *ngIf="project.title.includes('LMS')">
+                Student progress tracking with instant analytics
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

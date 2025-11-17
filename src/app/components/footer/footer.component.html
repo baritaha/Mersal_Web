@@ -1,0 +1,74 @@
+<footer class="footer">
+  <div class="footer-content">
+    <!-- Company Info -->
+    <div class="footer-section">
+      <div class="logo">
+        <img src="/logoT.png" alt="Mersal Logo" />
+      </div>
+      <p class="company-description">
+        Mersal Trading Company - Empowering businesses with innovative digital solutions
+        and cutting-edge technology services.
+      </p>
+      <div class="social-links">
+        <a *ngFor="let social of socialLinks"
+           [href]="social.url"
+           class="social-link"
+           [title]="social.platform">
+          <i [class]="'fab fa-' + social.icon"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <div class="quick-links">
+        <a *ngFor="let link of quickLinks"
+           (click)="scrollToSection(link.sectionId)"
+           class="quick-link">
+          {{ link.label }}
+        </a>
+      </div>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-section">
+      <h4>Contact Info</h4>
+      <div class="contact-info">
+        <!-- In the contact info section -->
+<div class="contact-item">
+  <i class="fas fa-envelope"></i>
+  <span [innerHTML]="email"></span>
+</div>
+        <div *ngFor="let phone of phones" class="contact-item">
+          <i class="fas fa-phone"></i>
+          <span>{{ phone }}</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>{{ address }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-section">
+      <h4>Stay Updated</h4>
+      <p>Subscribe to our newsletter for the latest updates.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Enter your email" class="newsletter-input">
+        <button class="newsletter-btn">Subscribe</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    <p>&copy; 2024 Mersal Trading Company. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Cookie Policy</a>
+    </div>
+  </div>
+</footer>

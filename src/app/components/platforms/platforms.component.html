@@ -1,0 +1,123 @@
+<section class="platforms" id="platforms">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Our Platforms & Services</h2>
+      <p class="section-subtitle">Comprehensive digital ecosystem for empowerment and growth</p>
+    </div>
+
+    <!-- Main Platform Video -->
+    <div class="platform-hero-video">
+      <video autoplay muted loop playsinline>
+        <source src="/assets/videos/software4.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="video-overlay">
+        <h3>Integrated Digital Solutions</h3>
+        <p>Connecting training, employment, payments, and software services in one ecosystem</p>
+      </div>
+    </div>
+
+    <div class="platforms-content">
+      <div *ngFor="let platform of platforms" [id]="platform.id" class="platform-section">
+        <div class="platform-header">
+          <h3 class="platform-title">{{ platform.title }}</h3>
+          <p class="platform-subtitle">{{ platform.subtitle }}</p>
+        </div>
+
+        <div class="platform-body">
+          <!-- Platform Video -->
+          <div class="platform-video" *ngIf="platform.video">
+            <video autoplay muted loop playsinline>
+              <source [src]="platform.video" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-caption">
+              <i class="fas fa-play-circle"></i>
+              <span>{{ platform.videoCaption }}</span>
+            </div>
+          </div>
+
+          <div class="platform-description">
+            <p>{{ platform.description }}</p>
+          </div>
+
+          <div class="platform-features">
+            <h4>Key Features</h4>
+            <div class="features-grid">
+              <div *ngFor="let feature of platform.features" class="feature-card">
+                <i class="fas fa-check-circle"></i>
+                <span>{{ feature }}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Benefits Section for DirectHub -->
+          <div *ngIf="platform.id === 'directhub'" class="platform-benefits">
+            <h4>Benefits for Different Users</h4>
+            <div class="benefits-grid">
+              <div class="benefit-category">
+                <h5>For Trainees & Learners</h5>
+                <ul>
+                  <li *ngFor="let benefit of platform.benefits.forTrainees"> {{ benefit }}</li>
+                </ul>
+              </div>
+              <div class="benefit-category">
+                <h5>For Freelancers</h5>
+                <ul>
+                  <li *ngFor="let benefit of platform.benefits.forFreelancers">{{ benefit }}</li>
+                </ul>
+              </div>
+              <div class="benefit-category">
+                <h5>For Companies & Employers</h5>
+                <ul>
+                  <li *ngFor="let benefit of platform.benefits.forCompanies">{{ benefit }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Why Unique Section for DirectHub -->
+          <div *ngIf="platform.id === 'directhub'" class="why-unique">
+            <h4>Why DirectHub is Unique</h4>
+            <div class="unique-points">
+              <div *ngFor="let point of platform.whyUnique" class="unique-point">
+                <i class="fas fa-star"></i>
+                <span>{{ point }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Platform Integration Video -->
+    <div class="platform-integration-video">
+      <video autoplay muted loop playsinline>
+        <source src="/assets/videos/platform-integration.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="integration-content">
+        <h3>Seamless Integration</h3>
+        <p>Our platforms work together to provide a complete digital transformation journey</p>
+        <div class="integration-features">
+          <div class="integration-item">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Training & Skills</span>
+          </div>
+          <div class="integration-item">
+            <i class="fas fa-briefcase"></i>
+            <span>Employment</span>
+          </div>
+          <div class="integration-item">
+            <i class="fas fa-credit-card"></i>
+            <span>Payments</span>
+          </div>
+          <div class="integration-item">
+            <i class="fas fa-code"></i>
+            <span>Software Solutions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

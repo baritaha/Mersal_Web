@@ -1,0 +1,16 @@
+<header [ngClass]="{ 'scrolled': isScrolled }" class="header">
+  <div class="logo">
+    <img src="/logoT.png" alt="Mersal Trading Company" />
+  </div>
+  <nav class="nav-menu">
+    <a *ngFor="let item of menuItems"
+       (click)="scrollToSection(item.sectionId)"
+       class="nav-link">
+      {{ item.label }}
+    </a>
+  </nav>
+
+  <div class="cta-button">
+    <a (click)="scrollToSection('contact')">Get Started</a>
+  </div>
+</header>
