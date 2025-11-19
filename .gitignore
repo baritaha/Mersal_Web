@@ -1,17 +1,69 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
-
-# Compiled output
+# ---------------------------------------------------------
+# GENERAL BUILD / OUTPUT
+# ---------------------------------------------------------
 /dist
 /tmp
 /out-tsc
 /bazel-out
+/bower_components
 
-# Node
+# ---------------------------------------------------------
+# NODE
+# ---------------------------------------------------------
 /node_modules
 npm-debug.log
+npm-debug.log*
 yarn-error.log
+yarn-debug.log*
+lerna-debug.log*
+logs
+*.log
 
-# IDEs and editors
+# ---------------------------------------------------------
+# TYPESCRIPT / JS / BUNDLERS
+# ---------------------------------------------------------
+/.angular/cache
+.sass-cache/
+/connect.lock
+coverage
+/libpeerconnection.log
+testem.log
+/typings
+*.tsbuildinfo
+*.lcov
+.nyc_output
+.cache
+.parcel-cache
+.next
+out
+.nuxt
+.vuepress/dist
+.vuepress/.cache
+.temp
+.svelte-kit/
+.docusaurus
+.serverless/
+.fusebox/
+.dynamodb/
+.firebase/
+.vitepress/dist
+.vitepress/cache
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# ---------------------------------------------------------
+# RUNTIME / SYSTEM DATA
+# ---------------------------------------------------------
+pids
+*.pid
+*.seed
+*.pid.lock
+lib-cov
+build/Release
+
+# ---------------------------------------------------------
+# IDEs & EDITORS
+# ---------------------------------------------------------
 .idea/
 .project
 .classpath
@@ -20,27 +72,36 @@ yarn-error.log
 .settings/
 *.sublime-workspace
 
-# Visual Studio Code
+# VS CODE
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
+.vscode-test
 
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
+# ---------------------------------------------------------
+# ENVIRONMENT FILES
+# ---------------------------------------------------------
+.env
+.env.*
+!.env.example
 
-# System files
+# ---------------------------------------------------------
+# MISC
+# ---------------------------------------------------------
 .DS_Store
 Thumbs.db
+.github/instructions/codacy.instructions.md
 
-
-#Ignore vscode AI rules
-.github\instructions\codacy.instructions.md
+# ---------------------------------------------------------
+# YARN V3
+# ---------------------------------------------------------
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
