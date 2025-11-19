@@ -25,7 +25,32 @@ interface Platform {
   styleUrls: ['./platforms.component.scss']
 })
 export class PlatformsComponent implements AfterViewInit {
+ ngAfterViewInit() {
+    this.initAllVideos();
+  }
 
+  private initAllVideos() {
+    const videos: NodeListOf<HTMLVideoElement> = document.querySelectorAll('video');
+    videos.forEach(video => {
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+
+      video.addEventListener('canplaythrough', () => {
+        video.play().catch(err => {
+          console.warn('Video autoplay blocked:', err);
+        });
+      });
+    });
+
+    // Optional: restart videos on page refresh
+    window.addEventListener('beforeunload', () => {
+      videos.forEach(video => {
+        video.pause();
+        video.currentTime = 0;
+      });
+    });
+  }
   platforms: Platform[] = [
     {
       id: 'directhub',
@@ -105,32 +130,7 @@ export class PlatformsComponent implements AfterViewInit {
     }
   ];
 
-  ngAfterViewInit() {
-    this.initAllVideos();
-  }
 
-  private initAllVideos() {
-    const videos: NodeListOf<HTMLVideoElement> = document.querySelectorAll('video');
-    videos.forEach(video => {
-      video.muted = true;
-      video.loop = true;
-      video.playsInline = true;
-
-      video.addEventListener('canplaythrough', () => {
-        video.play().catch(err => {
-          console.warn('Video autoplay blocked:', err);
-        });
-      });
-    });
-
-    // Optional: restart videos on page refresh
-    window.addEventListener('beforeunload', () => {
-      videos.forEach(video => {
-        video.pause();
-        video.currentTime = 0;
-      });
-    });
-  }
 
   scrollToSection(sectionId: string): void {
     const element = document.getElementById(sectionId);
