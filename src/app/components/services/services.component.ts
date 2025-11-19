@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface Service {
@@ -16,6 +16,9 @@ interface Service {
   styleUrls: ['./services.component.scss']
 })
 export class ServicesComponent {
+
+
+
   services: Service[] = [
     {
       title: 'AI & Data Science',

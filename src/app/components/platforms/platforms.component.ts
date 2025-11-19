@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface Platform {
@@ -24,7 +24,8 @@ interface Platform {
   templateUrl: './platforms.component.html',
   styleUrls: ['./platforms.component.scss']
 })
-export class PlatformsComponent {
+export class PlatformsComponent implements AfterViewInit {
+
   platforms: Platform[] = [
     {
       id: 'directhub',
@@ -103,4 +104,38 @@ export class PlatformsComponent {
       videoCaption: 'Cutting-edge software and AI solutions for modern businesses'
     }
   ];
+
+  ngAfterViewInit() {
+    this.initAllVideos();
+  }
+
+  private initAllVideos() {
+    const videos: NodeListOf<HTMLVideoElement> = document.querySelectorAll('video');
+    videos.forEach(video => {
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+
+      video.addEventListener('canplaythrough', () => {
+        video.play().catch(err => {
+          console.warn('Video autoplay blocked:', err);
+        });
+      });
+    });
+
+    // Optional: restart videos on page refresh
+    window.addEventListener('beforeunload', () => {
+      videos.forEach(video => {
+        video.pause();
+        video.currentTime = 0;
+      });
+    });
+  }
+
+  scrollToSection(sectionId: string): void {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 }
