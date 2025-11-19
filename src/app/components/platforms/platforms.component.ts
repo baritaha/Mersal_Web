@@ -63,7 +63,7 @@ export class PlatformsComponent {
         'Empowering freelancers and youth to build their professional reputation and access real job opportunities',
         'Comprehensive and easy-to-use digital environment for all parties'
       ],
-      video: '/assets/videos/digital.mp4',
+      video: 'assets/videos/digital.mp4',
       videoCaption: 'DirectHub connects skilled professionals with opportunities in the digital market'
     },
     {
@@ -81,7 +81,7 @@ export class PlatformsComponent {
       ],
       benefits: {},
       whyUnique: [],
-      video: '/assets/videos/pay.mp4',
+      video: 'assets/videos/pay.mp4',
       videoCaption: 'Secure and convenient payment solutions for all your needs'
     },
     {
@@ -99,7 +99,7 @@ export class PlatformsComponent {
       ],
       benefits: {},
       whyUnique: [],
-      video: '/assets/videos/software3.mp4',
+      video: 'assets/videos/software3.mp4',
       videoCaption: 'Cutting-edge software and AI solutions for modern businesses'
     }
   ];
