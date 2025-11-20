@@ -1,0 +1,12 @@
+
+{
+  "HOME": { "TITLE": "Home" },
+  "ABOUT": { "TITLE": "About Us" },
+  "SERVICES": { "TITLE": "Services" },
+  "PLATFORMS": { "TITLE": "Platforms" },
+  "PROJECTS": { "TITLE": "Projects" },
+  "CONTACT": { "TITLE": "Contact" },
+  "CTA": { "GET_STARTED": "Get Started" }
+}
+
+

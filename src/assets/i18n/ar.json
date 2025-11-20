@@ -1,0 +1,9 @@
+{
+  "HOME": { "TITLE": "الرئيسية" },
+  "ABOUT": { "TITLE": "من نحن" },
+  "SERVICES": { "TITLE": "خدماتنا" },
+  "PLATFORMS": { "TITLE": "منصات" },
+  "PROJECTS": { "TITLE": "مشاريع" },
+  "CONTACT": { "TITLE": "اتصل بنا" },
+  "CTA": { "GET_STARTED": "ابدأ الآن" }
+}
